@@ -16,17 +16,17 @@ const BinaryCalculator = () => {
 
 
     function checkOperators(str: string) {
-        const regex = /(?<=.)(\+|\-)(?=.)/g;
+        const regex = /(?<=.)(\+|\-|\*|\/)(?=.)/g;
 
         // 匹配字符串
         const matches = str.match(regex);
 
         // 检查是否找到匹配项
         if (matches && matches.length > 0) {
-            console.log("存在加号或减号且前后有内容的情况。");
+            console.log("存在加号或减号或乘号或除号且前后有内容的情况。");
             return true;
         } else {
-            console.log("不存在加号或减号前后有内容的情况。");
+            console.log("不存在加号或减号或乘号或除号前后有内容的情况。");
             return false;
         }
     }
@@ -87,7 +87,7 @@ const BinaryCalculator = () => {
                         onChange={changeHandler}
                     />
                 </div>
-                <div className=" grid grid-cols-4 gap-1">
+                <div className=" grid grid-cols-4 gap-1 mt-1">
                     <button
                         onClick={() => {
                             appendBinaryDigit("0")
