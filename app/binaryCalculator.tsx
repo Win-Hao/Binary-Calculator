@@ -1,9 +1,6 @@
 "use client"
 import React, {useRef, useState} from 'react';
 
-
-
-
 const BinaryCalculator = () => {
     const [num, setNum] = useState<string>("")
     const inputRef = useRef<HTMLInputElement>(null)
@@ -19,13 +16,9 @@ const BinaryCalculator = () => {
 
 
     function checkOperators(str: string) {
-        // 正则表达式解释：
-        // (.) 表示任意字符，且确保至少有一个字符存在
-        // \+|\- 表示匹配 "+" 或 "-" 字符
-        // (?=.) 和 (?<=.) 是正向和反向查找，确保 "+" 或 "-" 字符前后至少有一个字符
         const regex = /(?<=.)(\+|\-)(?=.)/g;
 
-        // 使用正则表达式匹配字符串
+        // 匹配字符串
         const matches = str.match(regex);
 
         // 检查是否找到匹配项
@@ -39,7 +32,7 @@ const BinaryCalculator = () => {
     }
 
     function calculateBinaryExpression(expression: string) {
-        // 正则表达式用于匹配操作数和运算符
+        // 匹配操作数和运算符
         const regex = /([01]+)\s*([\+\-\*\/])\s*([01]+)/;
         const match = expression.match(regex);
 
